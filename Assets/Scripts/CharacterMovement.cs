@@ -15,7 +15,7 @@ public class CharacterMovement : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         var movement = joystick.Movement;
         
