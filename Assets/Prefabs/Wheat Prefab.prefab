@@ -225,4 +225,6 @@ MonoBehaviour:
   wheatCut: {fileID: 2751951208201941890}
   stackPrefab: {fileID: 4548781619656247085, guid: 23aa90a0264efdf4ea8873d8638b5de4,
     type: 3}
+  particlePrefab: {fileID: 8092874377476892235, guid: 36ab92ca3cf45ce4c83821c0fc7385d1,
+    type: 3}
   timeToGrow: 10
