@@ -9,10 +9,12 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private Joystick joystick;
 
     private Rigidbody _rigidbody;
+    private Animator _animator;
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
+        _animator = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
@@ -23,10 +25,12 @@ public class CharacterMovement : MonoBehaviour
         {
             ApplyVelocity(movement);
             ApplyRotation(movement);
+            _animator.SetBool("isMoving",true);
         }
         else
         {
             Idle();
+            _animator.SetBool("isMoving",false);
         }
     }
 
