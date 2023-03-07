@@ -46,7 +46,6 @@ namespace Wheat
         {
             if (_bag.CheckForFreeSpace() && other.CompareTag("Scythe"))
             {
-                print("Player cut wheat");
                 StartCoroutine(CutWheat());
             }
         }
