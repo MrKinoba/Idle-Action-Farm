@@ -52,7 +52,7 @@ namespace Wheat
             {
                 yield return new WaitForEndOfFrame();
             }
-            MoneyUI.AddMoney?.Invoke();
+            MoneyUI.CoinSpawn?.Invoke();
             DOTween.Kill(transform);
             Destroy(gameObject);
         }

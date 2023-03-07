@@ -2488,6 +2488,8 @@ MonoBehaviour:
   moneyPrefab: {fileID: 5118615852557439654, guid: bf5a0b2ebf7de544c91b1358e2751900,
     type: 3}
   parent: {fileID: 1675445861}
+  moneyText: {fileID: 821209364}
+  stackCost: 15
 --- !u!1001 &268590196
 PrefabInstance:
   m_ObjectHideFlags: 0
