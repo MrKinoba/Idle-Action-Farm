@@ -1,5 +1,6 @@
 using System.Collections;
 using DG.Tweening;
+using UI;
 using UnityEngine;
 
 namespace Wheat
@@ -51,7 +52,7 @@ namespace Wheat
             {
                 yield return new WaitForEndOfFrame();
             }
-
+            MoneyUI.AddMoney?.Invoke();
             DOTween.Kill(transform);
             Destroy(gameObject);
         }

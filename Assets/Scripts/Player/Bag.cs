@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Barn;
+using UI;
 using UnityEngine;
 using UnityEngine.Events;
 using Wheat;
@@ -35,6 +36,7 @@ namespace Player
         {
             _wheatList.Add((newStack,newStack.GetComponent<WheatMove>()));
             _wheatList[_wheatList.Count - 1].Item2.StartMovingToPlayer(bagParentPoint,_wheatList.Count*stacksOffset);
+            StacksPanel.StacksChange?.Invoke(_wheatList.Count,maxAmount);
         }
         public bool CheckForFreeSpace()
         {
@@ -63,6 +65,7 @@ namespace Player
             {
                 _wheatList[_wheatList.Count - 1].Item2.StartMovingToBarn(barnPoint.position);
                 _wheatList.Remove(_wheatList[_wheatList.Count - 1]);
+                StacksPanel.StacksChange?.Invoke(_wheatList.Count,maxAmount);
                 yield return new WaitForSeconds(barnTransferDelay);
             }
         }
