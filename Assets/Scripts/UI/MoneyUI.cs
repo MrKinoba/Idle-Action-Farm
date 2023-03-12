@@ -5,6 +5,7 @@ using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 using Quaternion = UnityEngine.Quaternion;
 using Vector3 = UnityEngine.Vector3;
 
@@ -26,12 +27,14 @@ namespace UI
         private Camera _camera;
         private int _money;
         private bool _isAddingMoney;
-
+        private AudioSource _audioSource;
+        
         private void Awake()
         {
             CoinSpawn.AddListener(PlayTransferAnimation);
             AddMoney.AddListener(OnMoneyAdd);
             _camera = Camera.main;
+            _audioSource = GetComponent<AudioSource>();
         }
 
         private void PlayTransferAnimation()
@@ -46,10 +49,10 @@ namespace UI
         private void OnMoneyAdd()
         {
             _money += stackCost;
+            _audioSource.Play();
             
             if (!_isAddingMoney)
                 StartCoroutine(AddMoneyRoutine());
-            
         }
 
         private IEnumerator AddMoneyRoutine()

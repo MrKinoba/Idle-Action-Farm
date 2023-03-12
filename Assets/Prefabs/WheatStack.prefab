@@ -95,5 +95,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  speedMultiplier: 5
-  minDistance: 0.05
+  speedMultiplier: 10
+  minDistance: 0.1

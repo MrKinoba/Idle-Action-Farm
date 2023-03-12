@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using Player;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Wheat
 {
@@ -12,8 +14,11 @@ namespace Wheat
         [SerializeField] private GameObject stackPrefab;
 
         [SerializeField] private float timeToGrow;
-        
+
+        [SerializeField] private List<AudioClip> cutAudio;
+
         private BoxCollider _boxCollider;
+        private AudioSource _audioSource;
 
         private Bag _bag;
 
@@ -22,6 +27,7 @@ namespace Wheat
             _bag = GameObject.FindGameObjectWithTag("Player").GetComponent<Bag>();
             ChangeWheatModel(true);
             _boxCollider = GetComponent<BoxCollider>();
+            _audioSource = GetComponent<AudioSource>();
         }
 
         private void ChangeWheatModel(bool isGrown)
@@ -32,6 +38,8 @@ namespace Wheat
         private IEnumerator CutWheat()
         {
             var newStack = Instantiate(stackPrefab, transform.position,Quaternion.identity);
+            _audioSource.clip = cutAudio[Random.Range(0, cutAudio.Count)];
+            _audioSource.Play();
             _bag.AddWheat?.Invoke(newStack);
             ChangeWheatModel(false);
             _boxCollider.enabled = false;

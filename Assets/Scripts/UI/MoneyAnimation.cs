@@ -28,6 +28,7 @@ public class MoneyAnimation : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         MoneyUI.AddMoney?.Invoke();
+        
         DOTween.Kill(transform);
         Destroy(gameObject);
     }
