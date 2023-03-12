@@ -10,8 +10,7 @@ namespace Wheat
         [SerializeField] private GameObject wheatGrown;
         [SerializeField] private GameObject wheatCut;
         [SerializeField] private GameObject stackPrefab;
-        [SerializeField] private GameObject particlePrefab;
-        
+
         [SerializeField] private float timeToGrow;
         
         private BoxCollider _boxCollider;
@@ -33,8 +32,6 @@ namespace Wheat
         private IEnumerator CutWheat()
         {
             var newStack = Instantiate(stackPrefab, transform.position,Quaternion.identity);
-            var particle = Instantiate(particlePrefab, transform.position, Quaternion.identity);
-            Destroy(particle,0.15f);
             _bag.AddWheat?.Invoke(newStack);
             ChangeWheatModel(false);
             _boxCollider.enabled = false;
