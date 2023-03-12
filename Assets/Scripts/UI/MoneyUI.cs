@@ -60,12 +60,13 @@ namespace UI
             _isAddingMoney = true;
             
             transform.DOShakeRotation(10,new Vector3(0,0,5),60,30,false);
-            while (int.Parse(moneyText.text)!=_money)
+            while (int.Parse(moneyText.text)<_money-1)
             {
-                moneyText.text = ((int.Parse(moneyText.text) + 1).ToString());
-                yield return new WaitForSeconds(0.005f);
+                moneyText.text = ((int.Parse(moneyText.text) + 2).ToString());
+                yield return new WaitForEndOfFrame();
             }
 
+            moneyText.text = _money.ToString();
             DOTween.Kill(transform);
             transform.DORotate(Vector3.zero,0.01f);
             _isAddingMoney = false;
