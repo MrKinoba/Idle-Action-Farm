@@ -62,8 +62,8 @@ namespace UI
             transform.DOShakeRotation(10,new Vector3(0,0,5),60,30,false);
             while (int.Parse(moneyText.text)<_money-1)
             {
-                moneyText.text = ((int.Parse(moneyText.text) + 2).ToString());
-                yield return new WaitForEndOfFrame();
+                moneyText.text = ((int.Parse(moneyText.text) + 3).ToString());
+                yield return new WaitForSeconds(0.01f);
             }
 
             moneyText.text = _money.ToString();
